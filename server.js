@@ -14,7 +14,8 @@ app.use(express.json());
 
 app.use('/api', userRoutes);
 
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect("mongodb+srv://mahesssvec:7J8mfXZngfmORpJm@cluster0.imkdy.mongodb.net/MERN-APP"
+    )
   .then(() => {
     app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
   })
