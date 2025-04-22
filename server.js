@@ -4,17 +4,17 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import userRoutes from './routes/userRoutes.js';
 
-dotenv.config(); // ✅ Load .env first
+dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000; // ✅ Define PORT after dotenv.config()
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
 
 app.use('/api', userRoutes);
 
-mongoose.connect("mongodb://localhost:27017/mern-app")
+mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
   })
